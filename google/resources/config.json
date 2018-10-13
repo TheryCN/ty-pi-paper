@@ -1,0 +1,8 @@
+{
+  "calendarScope":"https://www.googleapis.com/auth/calendar.readonly",
+  "requestDevice":"https://accounts.google.com/o/oauth2/device/code",
+  "requestToken":"https://www.googleapis.com/oauth2/v4/token",
+  "grantType":"http://oauth.net/grant_type/device/1.0",
+  "getEvents":"https://www.googleapis.com/calendar/v3/calendars/primary/events",
+  "requestRefreshToken":"https://www.googleapis.com/oauth2/v4/token"
+}

@@ -34,3 +34,4 @@ if __name__ == '__main__':
     scheduler = sched.scheduler(time.time, time.sleep)
     # Refresh every minutes
     periodic(scheduler, 60, main)
+    scheduler.run()

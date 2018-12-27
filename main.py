@@ -6,8 +6,9 @@ import sched, time
 from PIL import Image, ImageFont, ImageDraw
 
 from urllib.parse import urlparse
-from writer.gcalendar import CalendarWriter
 from writer.countdown import BirthdayWriter
+
+randomCountdown = RandomCountdown();
 
 def main():
     epd = epd2in13b.EPD()
@@ -22,7 +23,7 @@ def main():
     # frame_red = epd.get_frame_buffer(Image.open('red.bmp'))
     # epd.display_frame(frame_black, frame_red)
 
-    BirthdayWriter().write(epd, frame_black, frame_red)
+    randomCountdown.write(epd, frame_black, frame_red)
     epd.display_frame(frame_black, frame_red)
 
 def periodic(scheduler, interval, action, actionargs=()):

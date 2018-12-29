@@ -6,7 +6,7 @@ import sched, time
 from PIL import Image, ImageFont, ImageDraw
 
 from urllib.parse import urlparse
-from writer.countdown import BirthdayWriter
+from writer.countdown import RandomCountdown
 
 randomCountdown = RandomCountdown();
 

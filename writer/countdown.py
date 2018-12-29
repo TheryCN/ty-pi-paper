@@ -3,6 +3,7 @@ from inkwriter import InkWriter
 from httplib2 import Http
 
 import json
+import os
 from PIL import ImageFont
 
 class RandomCountdown(InkWriter):
@@ -13,7 +14,7 @@ class RandomCountdown(InkWriter):
     countdown_path = dir_path + "/resources/config.json"
 
     def __init__(self):
-        self.config = config
+        self.config = {}
         with open(self.countdown_path) as file:
             self.config = json.load(file)
 
@@ -22,7 +23,7 @@ class RandomCountdown(InkWriter):
 
         http_obj = Http()
         resp, content = http_obj.request(uri=self.config["uri"], method='GET')
-        content = json.loads(content);
+        content = json.loads(content.decode());
 
         # Write event type in red
         epd.draw_string_reverse_at(frame_red, 10, 10, "{0}".format(content["event"]), font, InkWriter.COLORED)

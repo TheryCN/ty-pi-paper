@@ -247,7 +247,7 @@ class EPD:
                 if pixels[x, y] != 0:
                     self.set_pixel(frame_buffer, x, y, colored)
 
-    def draw_string_reverse_at(self, frame_buffer, x, y, text, font, colored):
+    def draw_string_horizontal_at(self, frame_buffer, x, y, text, font, colored):
         image = Image.new('1', (self.height, self.width))
         draw = ImageDraw.Draw(image)
         draw.text((x, y), text, font = font, fill = 255)

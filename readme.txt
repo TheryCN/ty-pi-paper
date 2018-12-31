@@ -1,34 +1,12 @@
-/******************************************************************************
- * File Name          : readme.txt
- * Description        : Readme file
- * Date               : July-28-2017
- ******************************************************************************
- *
- * Copyright (c) 2017 Waveshare
- * All rights reserved.
- *
- * THIS SOFTWARE IS PROVIDED BY COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
- * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
- * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
- * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
- * SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
- * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
- * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
- * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- ******************************************************************************
-  
-  == Development Environment ==
-  * OS: Raspbian for Raspberry Pi
-  * Libraries required: 
-        SPI library of Python
-        PIL (Python Imaging Library) library
+# Waveshare E-Ink Raspberry Project
 
-  == Raspberry Pi GPIO Pin map ==
+1. Environment
+Python version : Python 3.7
+https://www.waveshare.com/wiki/2.9inch_e-Paper_Module_(C)
+Raspberry pi 3 B+
+
+2. Raspberry Pi GPIO Pin map
+
  +-----+-----+---------+------+---+---Pi 3---+---+------+---------+-----+-----+
  | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
  +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
@@ -56,7 +34,7 @@
  | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
  +-----+-----+---------+------+---+---Pi 3---+---+------+---------+-----+-----+
 
-  == Hardware connection ==
+3. Hardware connection
     EPD    =>    Raspberry Pi
   * VCC    ->    3.3
   * GND    ->    GND
@@ -66,12 +44,3 @@
   * D/C    ->    22 (Physical, BCM: 25)
   * RES    ->    11 (Physical, BCM: 17)
   * BUSY   ->    18 (Physical, BCM: 24)
-
-  == How to use ==
-  1, install the Python libraries.
-  2, change the current directory to where the demo files located.
-  3, run the demo with: 
-     python main.py
-
-  */
-

@@ -19,6 +19,7 @@ Python 3 libs :
 2. Hardware connection
 
 Wiki : https://www.waveshare.com/wiki/2.9inch_e-Paper_Module_(C)
+
 Documentation : https://www.waveshare.com/w/upload/5/55/2.9inch-e-paper-module-b-user-manual-en.pdf
 
 3. Execution

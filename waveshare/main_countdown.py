@@ -11,9 +11,6 @@ from countdown.writer import CountdownWriter
 config = Config();
 writer = CountdownWriter(config);
 
-COLORED = 1
-YELLOW = 0
-
 def main():
     try:
         epd = epd2in9b.EPD()

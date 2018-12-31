@@ -12,7 +12,7 @@ class Config:
     countdown_path = dir_path + "/config.json"
 
     def __init__(self):
-        with open(selfds.countdown_path) as file:
+        with open(self.countdown_path) as file:
             self.config = json.load(file)
 
     def get_countdown_uri(self):

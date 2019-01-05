@@ -19,11 +19,14 @@ class CountdownWriter(InkWriter):
         resp, content = http_obj.request(uri=self.config.get_countdown_uri(), method='GET')
         content = json.loads(content.decode());
 
-        # Write event type in red
-        epd.draw_string_horizontal_at(frame_highlight, 10, 10, "{0}".format(content["type"]), font, InkWriter.COLORED)
+        # Write event type
+        epd.draw_string_horizontal_at(frame_black, 10, 10, "{0}".format(content["type"]), font, InkWriter.COLORED)
 
-        # Write days in black
-        epd.draw_string_horizontal_at(frame_black, 10, 30, "{0} DAYS".format(content["days"]), font, InkWriter.COLORED)
+        # Write event name
+        epd.draw_string_horizontal_at(frame_highlight, 10, 30, "{0}".format(content["name"]), font, InkWriter.COLORED)
 
-        # Write hours in red
-        epd.draw_string_horizontal_at(frame_highlight, 10, 50, "{0} SECONDS".format(content["seconds"]), font, InkWriter.COLORED)
+        # Write days
+        epd.draw_string_horizontal_at(frame_black, 10, 50, "{0} DAYS".format(content["days"]), font, InkWriter.COLORED)
+
+        # Write seconds
+        epd.draw_string_horizontal_at(frame_highlight, 10, 70, "{0} SECONDS".format(content["seconds"]), font, InkWriter.COLORED)

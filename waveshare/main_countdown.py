@@ -18,8 +18,8 @@ def main():
 
         print("Clear frames")
         # Clear the frame buffer - There is no partial refresh
-        frame_black = [0xFF] * (epd.width * epd.height / 8)
-        frame_highlight = [0xFF] * (epd.width * epd.height / 8)
+        frame_black = [0xFF] * int(epd.width * epd.height / 8)
+        frame_highlight = [0xFF] * int(epd.width * epd.height / 8)
 
         # Draw chrono image
 

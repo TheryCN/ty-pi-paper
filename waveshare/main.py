@@ -11,8 +11,8 @@ def main():
     epd.init()
 
     # clear the frame buffer
-    frame_black = [0xFF] * (epd.width * epd.height / 8)
-    frame_highlight = [0xFF] * (epd.width * epd.height / 8)
+    frame_black = [0xFF] * int(epd.width * epd.height / 8)
+    frame_highlight = [0xFF] * int(epd.width * epd.height / 8)
 
     # For simplicity, the arguments are explicit numerical coordinates
     epd.draw_rectangle(frame_black, 10, 80, 50, 140, COLORED);

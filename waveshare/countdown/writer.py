@@ -16,7 +16,7 @@ class CountdownWriter(InkWriter):
         font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeMono.ttf', 25)
 
         http_obj = Http()
-        resp, content = http_obj.request(uri=self.config.get_countdown(), method='GET')
+        resp, content = http_obj.request(uri=self.config.get_countdown_uri(), method='GET')
         content = json.loads(content.decode());
 
         # Write event type in red

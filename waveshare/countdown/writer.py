@@ -39,4 +39,4 @@ class CountdownWriter(InkWriter):
         epd.draw_string_horizontal_at(frame_black, 10, 60, "{0} DAYS".format(content["days"]), font, InkWriter.COLORED)
 
         # Write seconds
-        epd.draw_string_horizontal_at(frame_highlight, 10, 75, "{0} SECONDS".format(content["seconds"]), font, InkWriter.COLORED)
+        epd.draw_string_horizontal_at(frame_highlight, 10, 85, "{0} SECONDS".format(content["seconds"]), font, InkWriter.COLORED)

@@ -26,12 +26,14 @@ class CountdownWriter(InkWriter):
         # Write event name
         nameFontSize = 25
         name = content["name"]
+        y = 30
         if len(name) > 15:
             nameFontSize = 15
-            if len(name) > 30:
-                name = name[:29] + "..."
+            y = 35
+            if len(name) > 25:
+                name = name[:25] + "..."
         fontForName = ImageFont.truetype(self.fontName, nameFontSize);
-        epd.draw_string_horizontal_at(frame_highlight, 10, 30, "{0}".format(name), fontForName, InkWriter.COLORED)
+        epd.draw_string_horizontal_at(frame_highlight, 10, y, "{0}".format(name), fontForName, InkWriter.COLORED)
 
         # Write days
         epd.draw_string_horizontal_at(frame_black, 10, 50, "{0} DAYS".format(content["days"]), font, InkWriter.COLORED)

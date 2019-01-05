@@ -24,10 +24,10 @@ class CountdownWriter(InkWriter):
         epd.draw_string_horizontal_at(frame_black, 10, 10, "{0}".format(content["type"]), font, InkWriter.COLORED)
 
         # Write event name
-        nameFontSize = 25;
+        nameFontSize = 25
         name = content["name"]
         if len(name) > 15:
-            font = ImageFont.truetype(self.fontName, 15)
+            nameFontSize = 15
             if len(name) > 30:
                 name = name[:29] + "..."
         fontForName = ImageFont.truetype(self.fontName, nameFontSize);

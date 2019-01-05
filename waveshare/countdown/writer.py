@@ -25,7 +25,7 @@ class CountdownWriter(InkWriter):
 
         # Write event name
         nameFontSize = 25;
-        if(len(name) > 15) {
+        if(len(name) > 15)) {
             font = ImageFont.truetype(fontName, 15)
             if(len(name) > 30)) {
                 name = name[:29] + "..."

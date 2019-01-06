@@ -30,6 +30,7 @@ def main():
 
         # display the frames
         epd.display_frame(frame_black, frame_highlight)
+        epd.sleep()
     except:
         print('traceback.format_exc():\n%s',traceback.format_exc())
         exit()

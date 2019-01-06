@@ -1,6 +1,7 @@
 # 2.9inch e-paper display (C) Demo.
 
 import epd2in9b
+import imagedata
 from PIL import Image, ImageFont, ImageDraw
 
 COLORED = 1
@@ -31,9 +32,9 @@ def main():
     epd.display_frame(frame_black, frame_highlight)
 
     # display images
-    frame_black = epd.get_frame_buffer(Image.open('demo/black.bmp'))
-    frame_highlight = epd.get_frame_buffer(Image.open('demo/highlight.bmp'))
-    epd.display_frame(frame_black, frame_highlight)
+    #frame_black = epd.get_frame_buffer(Image.open('demo/black.bmp'))
+    #frame_highlight = epd.get_frame_buffer(Image.open('demo/highlight.bmp'))
+    epd.display_frame(imagedata.IMAGE_BLACK, imagedata.IMAGE_HIGHLIGHT)
 
     # You can get frame buffer from an image or import the buffer directly:
     #epd.display_frame(imagedata.IMAGE_BLACK, imagedata.IMAGE_HIGHLIGHT)

@@ -25,4 +25,5 @@ Documentation : https://www.waveshare.com/w/upload/5/55/2.9inch-e-paper-module-b
 3. Execution
 
 Demo : python waveshare/main.py
-Countdown : python waveshare/countdown.py (required ty-countdown)
+
+Countdown : python waveshare/main_countdown.py (required ty-countdown)

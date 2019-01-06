@@ -32,12 +32,14 @@ def main():
     epd.display_frame(frame_black, frame_highlight)
 
     # display images
-    #frame_black = epd.get_frame_buffer(Image.open('demo/black.bmp'))
-    #frame_highlight = epd.get_frame_buffer(Image.open('demo/highlight.bmp'))
-    epd.display_frame(imagedata.IMAGE_BLACK, imagedata.IMAGE_HIGHLIGHT)
+    frame_black = epd.get_frame_buffer(Image.open('demo/black.bmp'))
+    frame_highlight = epd.get_frame_buffer(Image.open('demo/highlight.bmp'))
+    epd.display_frame(frame_black, frame_highlight)
 
     # You can get frame buffer from an image or import the buffer directly:
     #epd.display_frame(imagedata.IMAGE_BLACK, imagedata.IMAGE_HIGHLIGHT)
+
+    edp.sleep()
 
 if __name__ == '__main__':
     main()

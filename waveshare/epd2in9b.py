@@ -148,7 +148,7 @@ class EPD:
             for x in range(self.width):
                 # Set the bits for the column of pixels at the current position.
                 if pixels[x, y] == 0:
-                    buf[int(x + y * self.width / 8)] &= ~(0x80 >> (x % 8))
+                    buf[int((x + y * self.width) / 8)] &= ~(0x80 >> (x % 8))
         return buf
 
     def display_frame(self, frame_buffer_black, frame_buffer_red):

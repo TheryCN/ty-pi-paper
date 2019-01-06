@@ -39,7 +39,7 @@ def main():
     # You can get frame buffer from an image or import the buffer directly:
     #epd.display_frame(imagedata.IMAGE_BLACK, imagedata.IMAGE_HIGHLIGHT)
 
-    edp.sleep()
+    epd.sleep()
 
 if __name__ == '__main__':
     main()

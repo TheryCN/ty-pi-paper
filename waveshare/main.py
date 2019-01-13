@@ -16,7 +16,7 @@ def main():
         # Read global config
         globalConfig = {}
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        with open(dir_path + '/../config') as file:
+        with open(dir_path + '/../config.json') as file:
             globalConfig = json.load(file)
 
         # Init edp

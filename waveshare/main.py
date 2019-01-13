@@ -11,14 +11,8 @@ from writer_factory import WriterFactory
 
 writerFactory = WriterFactory()
 
-def main():
+def main(globalConfig):
     try:
-        # Read global config
-        globalConfig = {}
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        with open(dir_path + '/../config.json') as file:
-            globalConfig = json.load(file)
-
         # Init edp
         epd = epd2in9b.EPD()
         epd.init()
@@ -44,10 +38,16 @@ def main():
         print('traceback.format_exc():\n%s',traceback.format_exc())
         exit()
 
-def periodic(scheduler, interval, action, actionargs=()):
+def periodic(scheduler, interval, action):
+    # Read global config
+    globalConfig = {}
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    with open(dir_path + '/../config.json') as file:
+        globalConfig = json.load(file)
+
     scheduler.enter(interval, 1, periodic,
-                    (scheduler, interval, action, actionargs))
-    action(*actionargs)
+                    (scheduler, interval, action, globalConfig))
+    action(*globalConfig)
 
 if __name__ == '__main__':
     scheduler = sched.scheduler(time.time, time.sleep)

@@ -1,45 +1,56 @@
-# 2.9inch e-paper display (C) Demo.
+# 2.9inch e-paper display (C) Display from manager.
 
 import epd2in9b
-import imagedata
 from PIL import Image, ImageFont, ImageDraw
+import sched, time
+import traceback
+import json
+import os
 
-COLORED = 1
-UNCOLORED = 0
+from writer_factory import WriterFactory
+
+writerFactory = WriterFactory()
 
 def main():
-    epd = epd2in9b.EPD()
-    epd.init()
+    try:
+        # Read global config
+        globalConfig = {}
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        with open(dir_path + '../config') as file:
+            globalConfig = json.load(file)
 
-    # clear the frame buffer
-    frame_black = [0xFF] * int(epd.width * epd.height / 8)
-    frame_highlight = [0xFF] * int(epd.width * epd.height / 8)
+        # Init edp
+        epd = epd2in9b.EPD()
+        epd.init()
 
-    # For simplicity, the arguments are explicit numerical coordinates
-    epd.draw_rectangle(frame_black, 10, 80, 50, 140, COLORED);
-    epd.draw_line(frame_black, 10, 80, 50, 140, COLORED);
-    epd.draw_line(frame_black, 50, 80, 10, 140, COLORED);
-    epd.draw_circle(frame_black, 90, 110, 30, COLORED);
-    epd.draw_filled_rectangle(frame_highlight, 10, 180, 50, 240, COLORED);
-    epd.draw_filled_rectangle(frame_highlight, 0, 6, 128, 26, COLORED);
-    epd.draw_filled_circle(frame_highlight, 90, 210, 30, COLORED);
+        print("Clear frames")
+        # Clear the frame buffer - There is no partial refresh
+        frame_black = [0xFF] * int(epd.width * epd.height / 8)
+        frame_highlight = [0xFF] * int(epd.width * epd.height / 8)
 
-    # write strings to the buffer
-    font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeMono.ttf', 16)
-    epd.draw_string_at(frame_black, 4, 30, "e-Paper Demo", font, COLORED)
-    epd.draw_string_at(frame_highlight, 6, 10, "Hello world!", font, UNCOLORED)
-    # display the frames
-    epd.display_frame(frame_black, frame_highlight)
+        # Draw image
+        if 'active' in globalConfig.keys():
+            active = globalConfig['active'];
+            print("Drawing " + active)
+            writerFactory.get_writer(active).write(epd, frame_black, frame_highlight)
+        else:
+            print("Drawing default")
+            writerFactory.get_writer('image').write(epd, frame_black, frame_highlight)
 
-    # display images
-    frame_black = epd.get_frame_buffer(Image.open('demo/black.bmp'))
-    frame_highlight = epd.get_frame_buffer(Image.open('demo/highlight.bmp'))
-    epd.display_frame(frame_black, frame_highlight)
+        # Display the frames
+        epd.display_frame(frame_black, frame_highlight)
+        epd.sleep()
+    except:
+        print('traceback.format_exc():\n%s',traceback.format_exc())
+        exit()
 
-    # You can get frame buffer from an image or import the buffer directly:
-    #epd.display_frame(imagedata.IMAGE_BLACK, imagedata.IMAGE_HIGHLIGHT)
-
-    epd.sleep()
+def periodic(scheduler, interval, action, actionargs=()):
+    scheduler.enter(interval, 1, periodic,
+                    (scheduler, interval, action, actionargs))
+    action(*actionargs)
 
 if __name__ == '__main__':
-    main()
+    scheduler = sched.scheduler(time.time, time.sleep)
+    # Refresh every 2 minutes
+    periodic(scheduler, 60 * 2, main)
+    scheduler.run()

@@ -21,14 +21,11 @@ def main():
         frame_black = [0xFF] * int(epd.width * epd.height / 8)
         frame_highlight = [0xFF] * int(epd.width * epd.height / 8)
 
-        # Draw chrono image
-
+        # Draw image
         print("Drawing Countdown")
         writer.write(epd, frame_black, frame_highlight)
 
-        # Draw meteo (?)
-
-        # display the frames
+        # Display the frames
         epd.display_frame(frame_black, frame_highlight)
         epd.sleep()
     except:

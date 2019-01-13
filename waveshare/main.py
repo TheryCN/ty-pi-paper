@@ -47,7 +47,7 @@ def periodic(scheduler, interval, action):
 
     scheduler.enter(interval, 1, periodic,
                     (scheduler, interval, action, globalConfig))
-    action(*globalConfig)
+    action(globalConfig)
 
 if __name__ == '__main__':
     scheduler = sched.scheduler(time.time, time.sleep)

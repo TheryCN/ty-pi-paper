@@ -38,7 +38,7 @@ def main(globalConfig):
         print('traceback.format_exc():\n%s',traceback.format_exc())
         exit()
 
-def periodic(scheduler, interval, action):
+def periodic(scheduler, interval, action, actionargs):
     # Read global config
     globalConfig = {}
     dir_path = os.path.dirname(os.path.realpath(__file__))

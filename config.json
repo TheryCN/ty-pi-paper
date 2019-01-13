@@ -1,3 +1,4 @@
 {
-  "active":"countdown"
+  "active":"countdown",
+  "refreshTime": "120"
 }

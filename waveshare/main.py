@@ -45,6 +45,9 @@ def periodic(scheduler, interval, action):
     with open(dir_path + '/../config.json') as file:
         globalConfig = json.load(file)
 
+    if 'refreshTime' in globalConfig.keys():
+        interval = globalConfig['refreshTime']
+
     scheduler.enter(interval, 1, periodic,
                     (scheduler, interval, action, globalConfig))
     action(globalConfig)

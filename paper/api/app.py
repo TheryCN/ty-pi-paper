@@ -18,7 +18,7 @@ def index():
 # Change active display / refresh time
 @app.route('/settings/<active>/<refreshTime>')
 def settings(active, refreshTime):
-  print_paper(active, refreshTime)
+  print_paper(active, int(refreshTime))
   return 'Settings updated... {}'.format(active)
 
 def start_runner():

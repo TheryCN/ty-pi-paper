@@ -1,7 +1,7 @@
 from threading import Thread
 from flask import current_app
 import traceback
-from waveshare import epd2in9b
+import waveshare.epd2in9b
 from PIL import Image, ImageFont, ImageDraw
 
 class PrintThread(Thread):

@@ -3,7 +3,7 @@ from threading import Thread
 import traceback
 from waveshare import epd2in9b
 from PIL import Image, ImageFont, ImageDraw
-from waveshare.writer_factory import WriterFactory
+from writer_factory import WriterFactory
 
 class PrintThread(Thread):
 

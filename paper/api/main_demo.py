@@ -1,7 +1,7 @@
 # 2.9inch e-paper display (C) Demo.
 
 from waveshare import epd2in9b
-import imagedata
+from waveshare import waimagedata
 from PIL import Image, ImageFont, ImageDraw
 
 COLORED = 1

@@ -20,7 +20,7 @@ class PrintThread(Thread):
 
     def run(self):
         self.running = True
-        periodic(scheduler, self.refreshTime, self.print_paper)
+        periodic(self.scheduler, self.refreshTime, self.print_paper)
         self.scheduler.run()
 
     def stop(self):

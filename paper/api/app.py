@@ -6,24 +6,26 @@ global thread
 thread = None
 
 def start_runner():
-    print_paper('default')
+    print_paper('default', 60)
 
 @app.route('/')
 def index():
   return 'Server Works!'
 
-@app.route('/settings/<active>')
+@app.route('/settings/<active>/<refreshTime>')
 def settings(active):
-  print_paper(active)
+  print_paper(active, refreshTime)
   return 'Settings updated... {}'.format(active)
 
-def print_paper(active):
+def print_paper(active, refreshTime):
     global thread
     if thread is not None:
         thread.stop()
         app.logger.info("Thread#stopped")
+        thread.settings(active, refreshTime)
+    else:
+        thread = PrintThread(active, refreshTime)
 
-    thread = PrintThread(active)
     thread.start()
     app.logger.info("Thread#started")
 

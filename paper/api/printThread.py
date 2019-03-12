@@ -4,19 +4,28 @@ import traceback
 from waveshare import epd2in9b
 from PIL import Image, ImageFont, ImageDraw
 from writer_factory import WriterFactory
+import sched, time
 
 class PrintThread(Thread):
 
     def __init__(self, active):
         Thread.__init__(self)
-        self.active = active
+        self.settings(self.active, self.refreshTime)
         self.writerFactory = WriterFactory()
+        self.scheduler = sched.scheduler(time.time, time.sleep)
+
+    def settings(self, active, refreshTime):
+        self.active = active
+        self.refreshTime = 60
 
     def run(self):
-        self.print_paper()
+        self.running = True
+        periodic(scheduler, self.refreshTime, self.print_paper)
+        scheduler.run()
 
     def stop(self):
         self.running = False
+        self.scheduler.cancel(self.event)
 
     def print_paper(self):
         #current_app.logger.info('PrintThread#Print')
@@ -40,3 +49,9 @@ class PrintThread(Thread):
         except:
             print('traceback.format_exc():\n%s',traceback.format_exc())
             exit()
+
+def periodic(scheduler, interval, action, actionargs={}):
+    if self.running:
+        self.event = scheduler.enter(interval, 1, periodic,
+                        (scheduler, interval, action, actionargs))
+        action(actionargs)

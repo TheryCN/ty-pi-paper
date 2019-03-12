@@ -27,3 +27,15 @@ Documentation : https://www.waveshare.com/w/upload/5/55/2.9inch-e-paper-module-b
 Demo : python waveshare/main.py
 
 Countdown : python waveshare/main_countdown.py (required ty-countdown)
+
+4. API (flask)
+
+pip install Flask
+
+cd api
+py -m venv venv
+
+export FLASK_ENV=development
+export FLASK_APP=app.py
+
+flask run

@@ -11,12 +11,12 @@ class PrintThread(Thread):
         self.active = active
 
     def run(self):
-        print()
+        print_paper()
 
     def stop(self):
         self.running = False
 
-    def print():
+    def print_paper(self):
         current_app.logger.info('PrintThread#Print')
         try:
             # Init edp

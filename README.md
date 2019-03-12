@@ -33,7 +33,11 @@ Countdown : python waveshare/main_countdown.py (required ty-countdown)
 pip install Flask
 
 cd api
-py -m venv venv
+windows:
+- py -m venv venv
+raspberry:
+- sudo pip3 install virtualenv
+- virtualenv flaskenv
 
 export FLASK_ENV=development
 export FLASK_APP=app.py

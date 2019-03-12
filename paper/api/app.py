@@ -13,7 +13,7 @@ def index():
   return 'Server Works!'
 
 @app.route('/settings/<active>/<refreshTime>')
-def settings(active):
+def settings(active, refreshTime):
   print_paper(active, refreshTime)
   return 'Settings updated... {}'.format(active)
 

@@ -1,4 +1,3 @@
-from inkwriter import InkWriter
 from httplib2 import Http
 
 import json

@@ -1,5 +1,4 @@
 from threading import Thread
-#from flask import current_app
 import traceback
 from waveshare import epd2in9b
 from PIL import Image, ImageFont, ImageDraw
@@ -25,11 +24,13 @@ class PrintThread(Thread):
 
     def stop(self):
         self.running = False
+        while not self.ends:
+            time.sleep(2)
         self.scheduler.cancel(self.event)
 
     def print_paper(self):
-        #current_app.logger.info('PrintThread#Print')
         try:
+            self.ends = False
             # Init edp
             epd = epd2in9b.EPD()
             epd.init()
@@ -46,9 +47,10 @@ class PrintThread(Thread):
             # Display the frames
             epd.display_frame(frame_black, frame_highlight)
             epd.sleep()
+            self.ends = True
         except:
             print('traceback.format_exc():\n%s',traceback.format_exc())
-            exit()
+            self.ends = True
 
     def periodic(self):
         if self.running:

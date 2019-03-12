@@ -3,6 +3,7 @@ from threading import Thread
 import traceback
 import epd2in9b
 from PIL import Image, ImageFont, ImageDraw
+from writer_factory import WriterFactory
 
 class PrintThread(Thread):
 

@@ -50,8 +50,8 @@ class PrintThread(Thread):
             print('traceback.format_exc():\n%s',traceback.format_exc())
             exit()
 
-def periodic(self, running, scheduler, interval, action, actionargs={}):
-    if self.running:
-        self.event = scheduler.enter(self.refreshTime, 1, self.periodic,
-                        (self.scheduler, self.refreshTime, self.print_paper, actionargs))
-        action(actionargs)
+    def periodic(self, running, scheduler, interval, action, actionargs={}):
+        if self.running:
+            self.event = scheduler.enter(self.refreshTime, 1, self.periodic,
+                            (self.scheduler, self.refreshTime, self.print_paper, actionargs))
+            action(actionargs)

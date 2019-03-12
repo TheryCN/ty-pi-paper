@@ -15,7 +15,7 @@ class PrintThread(Thread):
 
     def settings(self, active, refreshTime):
         self.active = active
-        self.refreshTime = 60
+        self.refreshTime = refreshTime
 
     def run(self):
         self.running = True

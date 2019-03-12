@@ -6,7 +6,7 @@ global thread
 thread = None
 
 def start_runner():
-    print_paper('default', 60)
+    print_paper('default', 120)
 
 @app.route('/')
 def index():
@@ -22,10 +22,8 @@ def print_paper(active, refreshTime):
     if thread is not None:
         thread.stop()
         app.logger.info("Thread#stopped")
-        thread.settings(active, refreshTime)
-    else:
-        thread = PrintThread(active, refreshTime)
 
+    thread = PrintThread(active, refreshTime)
     thread.start()
     app.logger.info("Thread#started")
 

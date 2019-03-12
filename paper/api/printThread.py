@@ -1,9 +1,9 @@
 from threading import Thread
 #from flask import current_app
 import traceback
-import epd2in9b
+from waveshare import epd2in9b
 from PIL import Image, ImageFont, ImageDraw
-from writer_factory import WriterFactory
+from waveshare.writer_factory import WriterFactory
 
 class PrintThread(Thread):
 

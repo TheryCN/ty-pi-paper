@@ -1,6 +1,6 @@
 # 2.9inch e-paper display (C) Display from manager.
 
-import epd2in9b
+from waveshare import epd2in9b
 from PIL import Image, ImageFont, ImageDraw
 import sched, time
 import traceback

@@ -1,6 +1,6 @@
 # 2.9inch e-paper display (C) Demo.
 
-import epd2in9b
+from waveshare import epd2in9b
 import imagedata
 from PIL import Image, ImageFont, ImageDraw
 

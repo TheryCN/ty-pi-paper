@@ -24,7 +24,7 @@
  # THE SOFTWARE.
  #
 
-import epdif
+from waveshare import epdif
 from PIL import Image, ImageFont, ImageDraw
 import RPi.GPIO as GPIO
 

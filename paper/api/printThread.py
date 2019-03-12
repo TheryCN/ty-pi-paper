@@ -9,6 +9,7 @@ class PrintThread(Thread):
     def __init__(self, active):
         Thread.__init__(self)
         self.active = active
+        self.writerFactory = WriterFactory()
 
     def run(self):
         self.print_paper()
@@ -30,7 +31,7 @@ class PrintThread(Thread):
 
             # Draw image
             print("Drawing " + self.active)
-            writerFactory.get_writer(self.active).write(epd, frame_black, frame_highlight)
+            self.writerFactory.get_writer(self.active).write(epd, frame_black, frame_highlight)
 
             # Display the frames
             epd.display_frame(frame_black, frame_highlight)

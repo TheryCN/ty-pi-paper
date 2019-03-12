@@ -1,5 +1,5 @@
 from threading import Thread
-from flask import current_app
+#from flask import current_app
 import traceback
 import epd2in9b
 from PIL import Image, ImageFont, ImageDraw
@@ -11,13 +11,13 @@ class PrintThread(Thread):
         self.active = active
 
     def run(self):
-        print_paper()
+        self.print_paper()
 
     def stop(self):
         self.running = False
 
     def print_paper(self):
-        current_app.logger.info('PrintThread#Print')
+        #current_app.logger.info('PrintThread#Print')
         try:
             # Init edp
             epd = epd2in9b.EPD()

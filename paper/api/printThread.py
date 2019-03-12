@@ -8,9 +8,9 @@ import sched, time
 
 class PrintThread(Thread):
 
-    def __init__(self, active):
+    def __init__(self, active, refreshTime):
         Thread.__init__(self)
-        self.settings(self.active, self.refreshTime)
+        self.settings(active, refreshTime)
         self.writerFactory = WriterFactory()
         self.scheduler = sched.scheduler(time.time, time.sleep)
 
